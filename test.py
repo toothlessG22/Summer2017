@@ -1,16 +1,17 @@
-import keyHelper
-import time
-import pyautogui
+import cv2
+import numpy as np
+from matplotlib import pyplot as plt
+from PIL import ImageGrab
 
+img_rgb = np.array(ImageGrab.grab().convert('RGB'))
+img_gray = cv2.cvtColor(img_rgb, cv2.COLOR_BGR2GRAY)
+template = cv2.imread('img/play.PNG',0)
+w, h = template.shape[::-1]
 
-time.sleep(3)
-imageCoords = pyautogui.locateCenterOnScreen('img/blueTeam.PNG')
+res = cv2.matchTemplate(img_gray,template,cv2.TM_CCOEFF_NORMED)
+threshold = 0.8
+loc = np.where( res >= threshold)
+for pt in zip(*loc[::-1]):
+    cv2.rectangle(img_rgb, pt, (pt[0] + w, pt[1] + h), (0,0,255), 2)
 
-keyHelper.PressKey(0x1E)
-time.sleep(1)
-pyautogui.moveTo(imageCoords, duration=1)
-pyautogui.click(imageCoords, clicks=1, button='left', duration=.1)
-time.sleep(1)
-pyautogui.mouseUp(button='left')
-time.sleep(.2)
-keyHelper.ReleaseKey(0x1E)
+cv2.imwrite('res.png',img_rgb)
