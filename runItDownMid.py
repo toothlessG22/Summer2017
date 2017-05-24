@@ -6,8 +6,10 @@ import openCVLocate
 def rundownmid(team):
     time.sleep(5)
     # main loop
+    imageCoords = None
     if (team == "blue"):
-        imageCoords = openCVLocate.locateCenter('img/blueTeam.PNG')
+        while imageCoords is None:
+            imageCoords = openCVLocate.locateCenter('img/blueTeam.PNG')
     else:
         imageCoords = None
 
