@@ -1,14 +1,14 @@
-import pyautogui
 import time
+import openCVLocate
 
 def waitForLoad():
-    while(pyautogui.locateCenterOnScreen('img/blueTeam.png')) == None:
+    while(openCVLocate.locateCenter('img/blueTeam.png')) == None:
         print("waiting for load")
         time.sleep(5)
     return
 
 def checkTeam():
-    if(pyautogui.locateCenterOnScreen('img/blueTeam.png')):
+    if(openCVLocate.locateCenter('img/blueTeam.png')):
         return 'blue'
     else:
         return 'red'

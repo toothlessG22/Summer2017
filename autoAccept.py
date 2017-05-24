@@ -1,19 +1,20 @@
 import pyautogui
 import time
+import openCVLocate
 
 def autoAccept():
     delay = 7
     accepted = False
     while True:
         print("accepting")
-        if(pyautogui.locateCenterOnScreen('img/accept.PNG') != None):
-            acceptCoords = pyautogui.locateCenterOnScreen('img/accept.PNG')
+        if(openCVLocate.locateCenter('img/accept.PNG') != None):
+            acceptCoords = openCVLocate.locateCenter('img/accept.PNG')
             pyautogui.click(acceptCoords, duration=.1)
             pyautogui.click(acceptCoords[0], acceptCoords[1]-50, duration=.5)
             accepted = True
             delay = 1
 
-        if(accepted and pyautogui.locateCenterOnScreen('img/wardInChampSelect.PNG')):
+        if(accepted and openCVLocate.locateCenter('img/wardInChampSelect.PNG')):
             break
 
         time.sleep(delay)

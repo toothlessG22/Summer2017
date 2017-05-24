@@ -1,19 +1,20 @@
 import pyautogui
 import time
+import openCVLocate
 
 def lockIn(champ):
     if champ == 'ashe':
         image = 'img/ashe.PNG'
     else:
         image = 'img/ashe.PNG'
-    while pyautogui.locateCenterOnScreen(image) == None:
+    while openCVLocate.locateCenter(image) == None:
         time.sleep(.3)
-    pyautogui.click(pyautogui.locateCenterOnScreen(image), duration=.07)
+    pyautogui.click(openCVLocate.locateCenter(image), duration=.07)
 
     time.sleep(.7)
-    while pyautogui.locateCenterOnScreen('img/lockIn.png') == None:
+    while openCVLocate.locateCenter('img/lockIn.png') == None:
         time.sleep(.3)
-    pyautogui.click(pyautogui.locateCenterOnScreen('img/lockIn.png'), duration=.2)
+    pyautogui.click(openCVLocate.locateCenter('img/lockIn.png'), duration=.2)
 
 if __name__ == "__main__":
     lockIn('ashe')

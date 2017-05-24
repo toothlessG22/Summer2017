@@ -1,12 +1,13 @@
 import pyautogui
 import time
 import keyHelper
+import openCVLocate
 
 def rundownmid(team):
     time.sleep(5)
     # main loop
     if (team == "blue"):
-        imageCoords = pyautogui.locateCenterOnScreen('img/blueTeam.PNG')
+        imageCoords = openCVLocate.locateCenter('img/blueTeam.PNG')
     else:
         imageCoords = None
 
@@ -97,14 +98,14 @@ def rundownmid(team):
             closeOptions()
 
             #check for end of game
-            if pyautogui.locateCenterOnScreen('img/continue.PNG') is not None:
-                pyautogui.click(pyautogui.locateCenterOnScreen('img/continue.PNG'), duration=.6)
+            if openCVLocate.locateCenter('img/continue.PNG') is not None:
+                pyautogui.click(openCVLocate.locateCenter('img/continue.PNG'), duration=.6)
                 break
 
         time.sleep(2)
 
 def closeOptions():
-    if(pyautogui.locateCenterOnScreen('img/options.PNG') != None):
+    if(openCVLocate.locateCenter('img/options.PNG') != None):
         keyHelper.PandRKey(0x01)
 
 if __name__ == "__main__":
