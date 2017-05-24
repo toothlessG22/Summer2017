@@ -18,7 +18,8 @@ def autoQueue(queue):
         print("waiting for play")
         time.sleep(2)
     pyautogui.click(openCVLocate.locateCenter('img/play.PNG'), duration=.06)
-
+    pyautogui.click(openCVLocate.locateCenter('img/play.PNG'), duration=.06)
+    print("play clicked")
     #wait for coop v ai
     CvAIcount = 0
     while openCVLocate.locateCenter('img/CoopVAI.PNG') == None:
@@ -28,6 +29,7 @@ def autoQueue(queue):
         if(CvAIcount > 5):
             break
     pyautogui.click(openCVLocate.locateCenter('img/CoopVAI.PNG'), duration=.07)
+    print("CoopVAI clicked")
 
     #wait for queue
     Qcount = 0
@@ -38,18 +40,21 @@ def autoQueue(queue):
         if (Qcount > 5):
             break
     pyautogui.click(openCVLocate.locateCenter(Qimage), duration=.07)
+    print("Q clicked")
 
     #wait for confirm
     while openCVLocate.locateCenter('img/confirmQueue.PNG') == None:
         print("waiting for confirm")
         time.sleep(2)
     pyautogui.click(openCVLocate.locateCenter('img/confirmQueue.PNG'), duration=.07)
+    print("ConfirmQ clicked")
 
     # wait for find match
     while openCVLocate.locateCenter('img/findMatch.PNG') == None:
         print("waiting for find match")
         time.sleep(2)
     pyautogui.click(openCVLocate.locateCenter('img/findMatch.PNG'), duration=.07)
+    print("Find match clicked! Bye!")
 
 if __name__ == "__main__":
     if(sys.argv.__len__() > 1):
