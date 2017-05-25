@@ -3,6 +3,7 @@ import sys
 import time
 import pyautogui
 
+
 def checkForLogin(user, pw):
     time.sleep(3)
     # click sign in button to reset mouse cursort

@@ -1,7 +1,7 @@
 import time
 import pyautogui
 
-if __name__ == "__main)":
+if __name__ == "__main__":
     import keyHelper, openCVLocate
     imgpath = "../img"
 else:
