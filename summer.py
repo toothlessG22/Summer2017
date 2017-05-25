@@ -5,6 +5,7 @@ import checkLoad
 import clickX
 import lockIn
 import sys
+import time
 
 if __name__ == "__main__":
     while True:
@@ -21,3 +22,4 @@ if __name__ == "__main__":
             runItDownMid.rundownmid(team)
 
         clickX.clickX()
+        time.sleep(3)
