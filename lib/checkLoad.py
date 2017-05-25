@@ -1,6 +1,9 @@
 import time
 
-import openCVLocate
+if __name__ == "__main)":
+    import openCVLocate
+else:
+    from lib import openCVLocate
 
 
 def waitForLoad():
