@@ -3,7 +3,7 @@ import time
 
 import pyautogui
 
-from lib import openCVLocate
+import openCVLocate
 
 
 def autoQueue(queue):

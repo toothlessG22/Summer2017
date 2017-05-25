@@ -1,6 +1,6 @@
 import time
 
-from lib import openCVLocate
+import openCVLocate
 
 
 def waitForLoad():

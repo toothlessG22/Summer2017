@@ -2,7 +2,7 @@ import time
 
 import pyautogui
 
-from lib import openCVLocate
+import openCVLocate
 
 
 def autoAccept():

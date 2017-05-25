@@ -2,7 +2,7 @@ import time
 
 import pyautogui
 
-from lib import keyHelper, openCVLocate
+import keyHelper, openCVLocate
 
 
 def rundownmid(team):
