@@ -20,7 +20,7 @@ def rundownmid(team):
 
     #buy dorans
     keyHelper.PandRKey(0x19)  # P
-
+    time.sleep(.3)
     keyHelper.PressKey(0x1D) # CTRL
     time.sleep(.2)
     keyHelper.PandRKey(0x1C) # RTRN
@@ -50,7 +50,7 @@ def rundownmid(team):
         if curr % 24 == 0:
             # buy vamp
             keyHelper.PandRKey(0x19)
-
+            time.sleep(.3)
             keyHelper.PressKey(0x1D)  # CTRL
             time.sleep(.2)
             keyHelper.PandRKey(0x1C)  # RTRN
