@@ -3,10 +3,10 @@ import pyautogui
 
 if __name__ == "__main)":
     import keyHelper, openCVLocate
-    imgpath = "img"
+    imgpath = "../img"
 else:
     from lib import keyHelper, openCVLocate
-    imgpath = "../img"
+    imgpath = "img"
 
 def rundownmid(team):
     time.sleep(5)
@@ -14,7 +14,7 @@ def rundownmid(team):
     imageCoords = None
     if (team == "blue"):
         while imageCoords is None:
-            imageCoords = openCVLocate.locateCenter('../img/blueTeam.PNG')
+            imageCoords = openCVLocate.locateCenter(imgpath + '/blueTeam.PNG')
     else:
         imageCoords = None
 

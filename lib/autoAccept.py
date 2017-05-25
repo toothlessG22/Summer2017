@@ -3,10 +3,10 @@ import pyautogui
 
 if __name__ == "__main)":
     import openCVLocate
-    imgpath = "img"
+    imgpath = "../img"
 else:
     from lib import openCVLocate
-    imgpath = "../img"
+    imgpath = "img"
 
 def autoAccept():
     delay = 7
