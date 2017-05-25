@@ -4,14 +4,19 @@ import time
 import pyautogui
 
 def checkForLogin(user, pw):
-    # click sign in button to reset mouse cursor
-    if(openCVLocate.locateCenter('img/signIn.png') == None):
+    time.sleep(3)
+    # click sign in button to reset mouse cursort
+    if(openCVLocate.locateCenter('img/signIn.png', thold=.9) == None):
         return
     pyautogui.click(openCVLocate.locateCenter('img/signIn.png'))
+    #dbllcik on username field to highlight anything inthere
+    userPos = openCVLocate.locateCenter('img/username.PNG')
+    pyautogui.doubleClick(x=userPos[0], y=userPos[1]+15)
     time.sleep(1)
-    keyHelper.PandRKey(0x0F) # tab
     keyHelper.sendString(user)
-    keyHelper.PandRKey(0x0F)  # tab
+    # dbllcik on pw field to highlight anything inthere
+    pwPos = openCVLocate.locateCenter('img/password.PNG')
+    pyautogui.doubleClick(x=pwPos[0], y=pwPos[1] + 15)
     keyHelper.sendString(pw)
     keyHelper.PandRKey(keyHelper.cToHex('enter'))
 
