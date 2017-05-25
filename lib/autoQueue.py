@@ -11,13 +11,13 @@ else:
 
 def autoQueue(queue):
     if queue == "intro":
-        Qimage = "../img/introQueue.PNG"
+        Qimage = imgpath + "/introQueue.PNG"
     elif queue == "beginner":
-        Qimage = "../img/beginnerQueue.PNG"
+        Qimage = imgpath + "/beginnerQueue.PNG"
     elif queue == "intermediate":
-        Qimage = "../img/intermediateQueue.PNG"
+        Qimage = imgpath + "/intermediateQueue.PNG"
     else:
-        Qimage = "../img/introQueue.PNG"
+        Qimage = imgpath + "introQueue.PNG"
 
     #wait for play
     while openCVLocate.locateCenter(imgpath + '/play.PNG') == None:

@@ -2,20 +2,25 @@ import time
 
 import pyautogui
 
-from lib import openCVLocate
+if __name__ == "__main)":
+    import openCVLocate
+    imgpath = "../img"
+else:
+    from lib import openCVLocate
+    imgpath = "img"
 
 
 def lockIn(champs):
     images = []
     for champ in champs:
         if champ == 'ashe':
-            images.append('img/ashe.PNG')
+            images.append(imgpath + '/ashe.PNG')
         elif champ == 'jhin':
-            images.append('img/jhin.PNG')
+            images.append(imgpath + '/jhin.PNG')
         elif champ == 'vayne':
-            images.append('img/vayne.PNG')
+            images.append(imgpath + '/vayne.PNG')
         else:
-            images.append('img/ashe.PNG')
+            images.append(imgpath + '/ashe.PNG')
 
     location = None
 
