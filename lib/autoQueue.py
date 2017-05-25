@@ -1,7 +1,10 @@
-import pyautogui
-import time
 import sys
-import openCVLocate
+import time
+
+import pyautogui
+
+from lib import openCVLocate
+
 
 def autoQueue(queue):
     if queue == "intro":

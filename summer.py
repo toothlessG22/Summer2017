@@ -1,11 +1,7 @@
-import runItDownMid
-import autoQueue
-import autoAccept
-import checkLoad
-import clickX
-import lockIn
 import sys
 import time
+
+from lib import autoAccept, autoQueue, checkLoad, lockIn, runItDownMid, clickX
 
 if __name__ == "__main__":
     while True:

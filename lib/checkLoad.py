@@ -1,5 +1,7 @@
 import time
-import openCVLocate
+
+from lib import openCVLocate
+
 
 def waitForLoad():
     while(openCVLocate.locateCenter('img/blueTeam.png')) == None:

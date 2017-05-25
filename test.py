@@ -1,6 +1,8 @@
-import openCVLocate
 import time
+
 from PIL import ImageGrab
+
+from lib import openCVLocate
 
 start = time.time()
 print(openCVLocate.locateCenter('img/play.PNG'))

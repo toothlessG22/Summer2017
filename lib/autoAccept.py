@@ -1,6 +1,9 @@
-import pyautogui
 import time
-import openCVLocate
+
+import pyautogui
+
+from lib import openCVLocate
+
 
 def autoAccept():
     delay = 7

@@ -1,7 +1,9 @@
-import pyautogui
 import time
-import keyHelper
-import openCVLocate
+
+import pyautogui
+
+from lib import keyHelper, openCVLocate
+
 
 def rundownmid(team):
     time.sleep(5)
