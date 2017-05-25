@@ -3,8 +3,10 @@ import pyautogui
 
 if __name__ == "__main)":
     import keyHelper, openCVLocate
+    imgpath = "img"
 else:
     from lib import keyHelper, openCVLocate
+    imgpath = "../img"
 
 def rundownmid(team):
     time.sleep(5)
@@ -103,14 +105,14 @@ def rundownmid(team):
             closeOptions()
 
             #check for end of game
-            if openCVLocate.locateCenter('../img/continue.PNG') is not None:
-                pyautogui.click(openCVLocate.locateCenter('../img/continue.PNG'), duration=.6)
+            if openCVLocate.locateCenter(imgpath + '/continue.PNG') is not None:
+                pyautogui.click(openCVLocate.locateCenter(imgpath + '/continue.PNG'), duration=.6)
                 break
 
         time.sleep(2)
 
 def closeOptions():
-    if(openCVLocate.locateCenter('../img/options.PNG') != None):
+    if(openCVLocate.locateCenter(imgpath + '/options.PNG') != None):
         keyHelper.PandRKey(0x01)
 
 if __name__ == "__main__":
