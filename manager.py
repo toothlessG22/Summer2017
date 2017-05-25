@@ -5,9 +5,9 @@ import pyautogui
 
 def checkForLogin(user, pw):
     # click sign in button to reset mouse cursor
-    if(openCVLocate.locateCenter('img/signIn.png') == None):
+    if(openCVLocate.locateCenter('../img/signIn.png') == None):
         return
-    pyautogui.click(openCVLocate.locateCenter('img/signIn.png'))
+    pyautogui.click(openCVLocate.locateCenter('../img/signIn.png'))
     time.sleep(1)
     keyHelper.PandRKey(0x0F) # tab
     keyHelper.sendString(user)

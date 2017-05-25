@@ -11,7 +11,7 @@ def rundownmid(team):
     imageCoords = None
     if (team == "blue"):
         while imageCoords is None:
-            imageCoords = openCVLocate.locateCenter('img/blueTeam.PNG')
+            imageCoords = openCVLocate.locateCenter('../img/blueTeam.PNG')
     else:
         imageCoords = None
 
@@ -102,14 +102,14 @@ def rundownmid(team):
             closeOptions()
 
             #check for end of game
-            if openCVLocate.locateCenter('img/continue.PNG') is not None:
-                pyautogui.click(openCVLocate.locateCenter('img/continue.PNG'), duration=.6)
+            if openCVLocate.locateCenter('../img/continue.PNG') is not None:
+                pyautogui.click(openCVLocate.locateCenter('../img/continue.PNG'), duration=.6)
                 break
 
         time.sleep(2)
 
 def closeOptions():
-    if(openCVLocate.locateCenter('img/options.PNG') != None):
+    if(openCVLocate.locateCenter('../img/options.PNG') != None):
         keyHelper.PandRKey(0x01)
 
 if __name__ == "__main__":
