@@ -54,5 +54,5 @@ def ReleaseKey(hexKeyCode):
 
 def PandRKey(hexKeyCode):
     PressKey(hexKeyCode)
-    time.sleep(.1)
+    time.sleep(.2)
     ReleaseKey(hexKeyCode)
