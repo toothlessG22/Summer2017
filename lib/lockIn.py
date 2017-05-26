@@ -19,23 +19,16 @@ def lockIn(champs):
             images.append(imgpath + '/jhin.PNG')
         elif champ == 'vayne':
             images.append(imgpath + '/vayne.PNG')
+        elif champ == 'varus':
+            images.append(imgpath + '/varus.PNG')
         else:
             images.append(imgpath + '/ashe.PNG')
 
-    location = None
-
-    while location == None:
+    while openCVLocate.locateCenter('img/lockIn.png', thold=.9) == None:
         for image in images:
-            tmploc = openCVLocate.locateCenter(image)
-            if tmploc is not None:
-                location = tmploc
-        time.sleep(.3)
-
-    pyautogui.click(location, duration=.07)
-
-    time.sleep(.7)
-    while openCVLocate.locateCenter('img/lockIn.png') == None:
-        time.sleep(.3)
+            if openCVLocate.locateCenter(image, thold=.9) is not None:
+                pyautogui.click(openCVLocate.locateCenter(image, thold=.9))
+        time.sleep(5)
     while openCVLocate.locateCenter('img/lockIn.png') is not None:
         pyautogui.click(openCVLocate.locateCenter('img/lockIn.png'), duration=.2)
         time.sleep(5)

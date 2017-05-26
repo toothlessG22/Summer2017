@@ -12,6 +12,7 @@ def waitForLoad():
     while(openCVLocate.locateCenter(imgpath + '/blueTeam.png')) == None:
         print("waiting for load")
         time.sleep(5)
+    print("loaded")
     return
 
 def checkTeam():

@@ -7,7 +7,7 @@ if __name__ == "__main__":
     while True:
         autoQueue.autoQueue(sys.argv[1])
         autoAccept.autoAccept()
-        lockIn.lockIn(['ashe', 'jhin', 'vayne'])
+        lockIn.lockIn(['jhin', 'vayne', 'varus', 'ashe'])
         # wait for game to load
         checkLoad.waitForLoad()
         team = checkLoad.checkTeam()
