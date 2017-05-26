@@ -17,5 +17,6 @@ if __name__ == "__main__":
         else:
             runItDownMid.rundownmid(team)
 
+        time.sleep(70)
         clickX.clickX()
         time.sleep(3)
