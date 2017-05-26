@@ -13,8 +13,9 @@ def autoAccept():
     accepted = False
     while True:
         print("accepting")
-        if(openCVLocate.locateCenter(imgpath + '/accept.PNG') != None):
-            acceptCoords = openCVLocate.locateCenter(imgpath + '/accept.PNG')
+        pos = openCVLocate.locateCenter(imgpath + '/accept.PNG')
+        if( pos != None):
+            acceptCoords = pos
             pyautogui.click(acceptCoords, duration=.1)
             pyautogui.click(acceptCoords[0], acceptCoords[1]-50, duration=.5)
             accepted = True
