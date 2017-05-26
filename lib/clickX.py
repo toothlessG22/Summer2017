@@ -16,7 +16,10 @@ def clickX():
 
     while openCVLocate.locateCenter(imgpath + '/X.PNG') is not None:
         pyautogui.click(openCVLocate.locateCenter(imgpath + '/OK.PNG'))
+        time.sleep(2)
         pyautogui.click(openCVLocate.locateCenter(imgpath + '/X.PNG'))
+        time.sleep(2)
+        pyautogui.click(openCVLocate.locateCenter(imgpath + '/OK.PNG'))
 
 if __name__ == "__main__":
     clickX()
