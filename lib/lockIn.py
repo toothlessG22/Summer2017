@@ -34,6 +34,7 @@ def lockIn(champs):
         for image in images:
             if openCVLocate.locateCenter(image, thold=.9) is not None:
                 pyautogui.click(openCVLocate.locateCenter(image, thold=.9))
+                time.sleep(1)
                 pyautogui.click(openCVLocate.locateCenter(imgpath + '/lockIn.png'), duration=.2)
                 time.sleep(1)
 
