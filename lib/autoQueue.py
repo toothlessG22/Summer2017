@@ -61,6 +61,7 @@ def autoQueue(queue):
         time.sleep(2)
     while openCVLocate.locateCenter(imgpath + '/findMatch.PNG') is not None:
         pyautogui.doubleClick(openCVLocate.locateCenter(imgpath + '/findMatch.PNG'), duration=.07)
+        time.sleep(2)
     print("Find match clicked! Bye!")
 
 if __name__ == "__main__":
