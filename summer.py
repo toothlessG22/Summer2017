@@ -8,8 +8,10 @@ if __name__ == "__main__":
         autoQueue.autoQueue(sys.argv[1])
         autoAccept.autoAccept()
         lockIn.lockIn(['ashe', 'sivir', 'vayne', 'varus', 'jinx'])
+        while checkLoad.waitForLoad() is False:
+            autoAccept.autoAccept()
+        lockIn.lockIn(['ashe', 'sivir', 'vayne', 'varus', 'jinx'])
         # wait for game to load
-        checkLoad.waitForLoad()
         team = checkLoad.checkTeam()
 
         if(sys.argv[2] == "runitdownmid"):
