@@ -9,15 +9,16 @@ else:
     imgpath = "img"
 
 def clickX():
-    while openCVLocate.locateCenter(imgpath + '/X.PNG') is None:
+    while openCVLocate.locateCenter(imgpath + '/X.PNG', thold=.95) is None:
         pos = openCVLocate.locateCenter(imgpath + '/OK.PNG')
         if pos is not None:
             print('see OK')
             pyautogui.click(pos, duration=.6)
             pyautogui.moveTo(x=pos[0], y=pos[1]+40)
+        time.sleep(1)
 
 
-    while openCVLocate.locateCenter(imgpath + '/X.PNG') is not None:
+    while openCVLocate.locateCenter(imgpath + '/X.PNG', thold=.95) is not None:
         pos = openCVLocate.locateCenter(imgpath + '/OK.PNG')
         if pos is not None:
             pyautogui.click(pos, duration=.6)
