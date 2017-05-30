@@ -25,6 +25,8 @@ def lockIn(champs):
             images.append(imgpath + '/varus.PNG')
         elif champ == 'sivir':
             images.append(imgpath + '/sivir.PNG')
+        elif champ == 'caitlyn':
+            images.append(imgpath + '/caitlyn.PNG')
         else:
             images.append(imgpath + '/ashe.PNG')
 
