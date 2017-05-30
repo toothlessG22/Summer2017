@@ -73,7 +73,7 @@ def rowdownmid(team):
     cloop = 0
     lastHealth = 0
 
-    time.sleep(60)
+    time.sleep(50)
     # main loop
     # move back on big damage
     # remove slow move
@@ -92,6 +92,7 @@ def rowdownmid(team):
                 dead(screenshotArray, BTcoords)
                 continue
             elif health < 200:
+                keyHelper.PandRKey(keyHelper.cToHex('k'))
                 back(screenshotArray, BTcoords)
                 continue
             if(health - lastHealth < -130):
@@ -135,7 +136,7 @@ def moveBackwards(steps, BTcoords):
         pyautogui.click(BTcoords[0]-800, BTcoords[1], button='right', duration=.1)
         time.sleep(.2)
         pyautogui.mouseUp(button='right')
-        time.sleep(2.5)
+        time.sleep(2.3)
 
 def buy(screenshot, BTcoords):
     gold = int(OCR.getWhiteText(screenshot, math.floor(BTcoords[0] - 290), 40, math.floor(BTcoords[1] + 133), 15, lower=120))
@@ -183,7 +184,7 @@ def autoDownMid(BTcoords, T):
     keyHelper.ReleaseKey(0x1E)
 
 def use(key, BTcoords):
-    pyautogui.moveTo(BTcoords[0], BTcoords[1]-500, duration=.3)
+    pyautogui.moveTo(BTcoords[0], BTcoords[1]-550, duration=.3)
     keyHelper.PandRKey(keyHelper.cToHex(key))
 
 if __name__ == "__main__":
