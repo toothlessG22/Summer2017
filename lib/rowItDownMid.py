@@ -73,7 +73,7 @@ def rowdownmid(team):
     cloop = 0
     lastHealth = 0
 
-    time.sleep(50)
+    time.sleep(40)
     # main loop
     # move back on big damage
     # remove slow move
@@ -92,14 +92,11 @@ def rowdownmid(team):
                 dead(screenshotArray, BTcoords)
                 continue
             elif health < 200:
-                keyHelper.PandRKey(keyHelper.cToHex('k'))
+                keyHelper.PandRKey(keyHelper.cToHex('f'))
                 back(screenshotArray, BTcoords)
                 continue
             if(health - lastHealth < -130):
                 moveBackwards(1, BTcoords)
-                use('q', BTcoords)
-                use('w', BTcoords)
-                use('r', BTcoords)
                 autoDownMid(BTcoords, time.clock() - T)
             if(openCVLocate.locateCenter(imgpath + '/upgrade.PNG') is not None):
                 upgrade()
