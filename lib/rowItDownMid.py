@@ -5,10 +5,10 @@ from PIL import ImageGrab
 import math
 
 if __name__ == "__main__":
-    import keyHelper, openCVLocate, OCR
+    import keyHelper, openCVLocate, OCR, buy
     imgpath = "../img"
 else:
-    from lib import keyHelper, openCVLocate, OCR
+    from lib import keyHelper, openCVLocate, OCR, buyUpgradeAndBack
     imgpath = "img"
 
 buyorder = [
@@ -68,7 +68,7 @@ def rowdownmid(team):
     keyHelper.PandRKey(keyHelper.cToHex('y'))
     # buy dorans blade
     screenshotArray = np.array(ImageGrab.grab().convert('RGB'))
-    buy(screenshotArray, BTcoords)
+    buyUpgradeAndBack.buy(buyorder, screenshotArray, BTcoords)
 
     cloop = 0
     lastHealth = 0
@@ -93,13 +93,13 @@ def rowdownmid(team):
                 continue
             elif health < 200:
                 keyHelper.PandRKey(keyHelper.cToHex('f'))
-                back(screenshotArray, BTcoords)
+                buyUpgradeAndBack.back(buyorder, screenshotArray, BTcoords)
                 continue
             if(health - lastHealth < -130):
                 moveBackwards(1, BTcoords)
                 autoDownMid(BTcoords, time.clock() - T)
             if(openCVLocate.locateCenter(imgpath + '/upgrade.PNG') is not None):
-                upgrade()
+                buyUpgradeAndBack.upgrade()
             if cloop % 10 == 0:
                 autoDownMid(BTcoords, time.clock() - T)
 
@@ -115,16 +115,8 @@ def clickInGame(imageCoords):
     pyautogui.click(imageCoords, duration=.2)
     pyautogui.mouseUp(imageCoords, duration=.1)
 
-def back(screeshot, BTcoords):
-    print("backing...")
-    moveBackwards(3, BTcoords)
-    keyHelper.PandRKey(keyHelper.cToHex('b'))
-    time.sleep(9)
-    buy(screeshot, BTcoords)
-    time.sleep(7)
-
 def dead(screenshot, BTcoords):
-    buy(screenshot, BTcoords)
+    buyUpgradeAndBack.buy(buyorder, screenshot, BTcoords)
 
 def moveBackwards(steps, BTcoords):
     print("moving backwards " + str(steps) + "step(s)")
@@ -134,34 +126,6 @@ def moveBackwards(steps, BTcoords):
         time.sleep(.2)
         pyautogui.mouseUp(button='right')
         time.sleep(2.3)
-
-def buy(screenshot, BTcoords):
-    gold = int(OCR.getWhiteText(screenshot, math.floor(BTcoords[0] - 290), 40, math.floor(BTcoords[1] + 133), 15, lower=120))
-    while gold >= buyorder[buyorder[0]][1] and buyorder[0] < buyorder.__len__():
-        print("buying " + str(buyorder[buyorder[0]][0]))
-        keyHelper.PandRKey(0x19)
-        time.sleep(1)
-        keyHelper.PressKey(0x1D)  # CTRL
-        time.sleep(1)
-        keyHelper.PandRKey(0x1C)  # RTRN
-        time.sleep(1)
-        keyHelper.ReleaseKey(0x1D)  # CTRL
-        keyHelper.sendString(buyorder[buyorder[0]][0])
-        keyHelper.PandRKey(0x1C)  # RTRN
-        keyHelper.PandRKey(0x1C)  # RTRN
-        keyHelper.PandRKey(0x01)  # ESC
-        gold -= buyorder[buyorder[0]][1]
-        buyorder[0] += 1
-        time.sleep(2)
-
-def upgrade():
-    print("upgrading " + upgradeorder[upgradeorder[0]])
-    keyHelper.PressKey(0x1D)  # CTRL
-    time.sleep(1)
-    keyHelper.PandRKey(keyHelper.cToHex(upgradeorder[upgradeorder[0]]))
-    time.sleep(1)
-    keyHelper.ReleaseKey(0x1D)  # CTRL
-    upgradeorder[0] += 1
 
 def autoDownMid(BTcoords, T):
     if T/60 < 6:

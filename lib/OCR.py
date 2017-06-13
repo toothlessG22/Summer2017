@@ -2,10 +2,10 @@ import pytesseract
 import numpy as np
 import cv2
 from PIL import Image
-import time
 
 def getWhiteText(img_array, x , width, y, height, lower=145, upper=256):
     c_img_array = img_array[y:y+height, x:x+width]
+    Image.fromarray(c_img_array).save('t6.png')
     res = cv2.resize(c_img_array, (3 * width, 3 * height), interpolation=cv2.INTER_CUBIC)
 
     low = np.array([lower, lower, lower], dtype="uint16")
