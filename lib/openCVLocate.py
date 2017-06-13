@@ -1,7 +1,6 @@
 import cv2
 import numpy as np
 from PIL import ImageGrab
-import time
 
 def locateCenter(img, thold=.8, img_rgb=np.array(ImageGrab.grab().convert('RGB')), isFile=True):
     img_gray = cv2.cvtColor(img_rgb, cv2.COLOR_BGR2GRAY)

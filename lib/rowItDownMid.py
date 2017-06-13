@@ -5,7 +5,7 @@ from PIL import ImageGrab
 import math
 
 if __name__ == "__main__":
-    import keyHelper, openCVLocate, OCR, buy
+    import keyHelper, openCVLocate, OCR, buyUpgradeAndBack
     imgpath = "../img"
 else:
     from lib import keyHelper, openCVLocate, OCR, buyUpgradeAndBack

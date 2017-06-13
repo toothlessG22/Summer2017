@@ -1,9 +1,9 @@
 import math
 import time
-if __name__ == "__main__":
-    import keyHelper, OCR
-else:
+try:
     from lib import keyHelper, OCR
+except ImportError:
+    import keyHelper, OCR
 
 def buy(buyorder, screenshot, BTcoords, xoff=-290, yoff=133):
     gold = int(OCR.getWhiteText(screenshot, math.floor(BTcoords[0] + xoff), 40, math.floor(BTcoords[1] + yoff), 15, lower=120))
