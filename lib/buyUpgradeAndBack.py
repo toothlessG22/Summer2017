@@ -6,7 +6,11 @@ except ImportError:
     import keyHelper, OCR
 
 def buy(buyorder, screenshot, BTcoords, xoff=-290, yoff=133):
-    gold = int(OCR.getWhiteText(screenshot, math.floor(BTcoords[0] + xoff), 40, math.floor(BTcoords[1] + yoff), 15, lower=120))
+    text = OCR.getWhiteText(screenshot, math.floor(BTcoords[0] + xoff), 40, math.floor(BTcoords[1] + yoff), 15, lower=120)
+    if text is '':
+        gold = 0
+    else:
+        gold = int(text)
     while gold >= buyorder[buyorder[0]][1] and buyorder[0] < buyorder.__len__():
         print("buying " + str(buyorder[buyorder[0]][0]))
         keyHelper.PandRKey(0x19)
@@ -33,9 +37,7 @@ def upgrade(upgradeorder):
     keyHelper.ReleaseKey(0x1D)  # CTRL
     upgradeorder[0] += 1
 
-def back(buyorder, screenshot, BTcoords):
+def back():
     print("backing...")
     keyHelper.PandRKey(keyHelper.cToHex('b'))
     time.sleep(9)
-    buy(buyorder, screenshot, BTcoords)
-    time.sleep(7)

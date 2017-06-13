@@ -31,6 +31,27 @@ buyorder = [
         ["mercuri", 2700]
     ]
 
+upgradeorder = [
+        1,
+        'q',
+        'w',
+        'e',
+        'w',
+        'w',
+        'r',
+        'w',
+        'w',
+        'q',
+        'q',
+        'r',
+        'q',
+        'q',
+        'e',
+        'e',
+        'r',
+        'e',
+        'e'
+    ]
 
 def runitdownbot(team):
     time.sleep(1)
@@ -60,13 +81,20 @@ def runitdownbot(team):
 
         if health is 0:
             buyUpgradeAndBack.buy(buyorder, im, BTcoords, xoff=-296, yoff=70)
-        elif health < .2:
+        elif health < 20:
+            dodgeBack(BTcoords)
+            time.sleep(2)
+            dodgeBack(BTcoords)
+            time.sleep(2)
+            buyUpgradeAndBack.back()
             buyUpgradeAndBack.buy(buyorder, im, BTcoords, xoff=-296, yoff=70)
 
         if (cloop + 2) % 10 == 0:
             dodgeBack(BTcoords)
         if cloop % 10 == 0:
            autoItDown(BTcoords)
+        if cloop % 60 == 0:
+            buyUpgradeAndBack.upgrade(upgradeorder)
         time.sleep(max(.7 - (time.clock() - ctime), 0))
 
 def getHealth(im, BTcoords):
