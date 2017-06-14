@@ -94,14 +94,15 @@ def runitdownbot(team):
         if cloop % 10 == 0:
            autoItDown(BTcoords)
         if cloop % 60 == 0:
-            buyUpgradeAndBack.upgrade(upgradeorder)
+            if (openCVLocate.locateCenter(imgpath + '/upgrade.PNG') is not None):
+                buyUpgradeAndBack.upgrade(upgradeorder)
         time.sleep(max(.7 - (time.clock() - ctime), 0))
 
 def getHealth(im, BTcoords):
     y = math.floor(BTcoords[1]) + 67
     x = math.floor(BTcoords[0]) - 672
     healthBarImgArray = im[y:y + 2, x:x + 293]
-    Image.fromarray(healthBarImgArray).save('t4.png')
+    #Image.fromarray(healthBarImgArray).save('t4.png')
     healthPercent = 0
     for i in range(292, 0, -1):
         if (int(healthBarImgArray[0][i][0]) + int(healthBarImgArray[0][i][1]) + int(

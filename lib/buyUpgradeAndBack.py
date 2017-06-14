@@ -40,4 +40,4 @@ def upgrade(upgradeorder):
 def back():
     print("backing...")
     keyHelper.PandRKey(keyHelper.cToHex('b'))
-    time.sleep(9)
+    time.sleep(16)
